@@ -1,6 +1,6 @@
 #Importando datos de precios de cierre de Starbucks y Microsoft
 library(readr)
-sbux.df <- read_csv("A CURSO SERIES TEMPORALES (NUEVO)/Clases Nuevas/Starbuck/sbuxPrices.csv")
+sbux.df <- read_csv("sbuxPrices.csv")
 View(sbux.df)
 
 sbux.ts = ts(data=sbux.df$Adj.Close, frequency = 12,
@@ -8,7 +8,7 @@ sbux.ts = ts(data=sbux.df$Adj.Close, frequency = 12,
 class(sbux.ts) 
 
 
-msft.df <- read_csv("A CURSO SERIES TEMPORALES (NUEVO)/Clases Nuevas/Starbuck/msftPrices.csv")
+msft.df <- read_csv("msftPrices.csv")
 View(sbux.df)
 msft.ts = ts(data=msft.df$Adj.Close, frequency = 12,
              start=c(1993,3), end=c(2008,3))
@@ -22,7 +22,7 @@ frequency(sbux.ts)
 #Subconjunto de la serie de tiempo
 tmp = sbux.ts[1:5] 
 class(tmp)
-
+# Permite seleccionar una ventana temporal
 tmp = window(sbux.ts, start=c(1993, 3), end=c(1993,8))
 class(tmp)
 
